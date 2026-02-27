@@ -1552,23 +1552,23 @@ export const loop_each_map_clone_filter_take_SpecHandler = (
           () => a_Function_arrowNamed,
           // expectedClone
           new Error(
-            `z.clone(): Could not clone the given value: z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1, arg2) => "double quotes" + 'single quotes' + \`backtick quotes\``
+            `z.clone(): Could not clone the given value: z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1,arg2)=>\`double quotessingle quotesbacktick quotes\``
           ),
           // expectedLoopOrEach
           new Error(
-            `z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1, arg2) => "double quotes" + 'single quotes' + \`backtick quotes\``
+            `z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1,arg2)=>\`double quotessingle quotesbacktick quotes\``
           ),
           // expectedMap
           new Error(
-            `z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1, arg2) => "double quotes" + 'single quotes' + \`backtick quotes\``
+            `z.loop(): strict = true, but wrong z.isMany type. With type(value) === 'function' & value = (arg1,arg2)=>\`double quotessingle quotesbacktick quotes\``
           ),
           // expectedFiltered
           new Error(
-            `z.project() as z.filter(): Can't filter or take with filterSingles: false over an z.isSingleOrWeak value (arg1, arg2) => "double quotes" + 'single quotes' + \`backtick quotes\``
+            `z.project() as z.filter(): Can't filter or take with filterSingles: false over an z.isSingleOrWeak value (arg1,arg2)=>\`double quotessingle quotesbacktick quotes\``
           ),
           // expectedTake
           new Error(
-            `z.project() as z.take(): Can't filter or take with filterSingles: false over an z.isSingleOrWeak value (arg1, arg2) => "double quotes" + 'single quotes' + \`backtick quotes\``
+            `z.project() as z.take(): Can't filter or take with filterSingles: false over an z.isSingleOrWeak value (arg1,arg2)=>\`double quotessingle quotesbacktick quotes\``
           ),
         ],
 

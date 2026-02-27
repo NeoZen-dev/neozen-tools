@@ -5,6 +5,6 @@
   "verbose": true,
   "delay": 1000,
   "execMap": {
-    "ts": "ts-node --transpileOnly"
+    "ts": "tsx"
   }
 }
