@@ -9,7 +9,7 @@ const TAKE_ITEMS_COUNT = 3
 export const filter_STOPed_resembling_take = 'filter_STOPed_resembling_take' // + 45 tests
 export const map_STOPed_resembling_take = 'map_STOPed_resembling_take'
 
-let onlyThisSuite: boolean
+let onlyThisSuite: boolean = false
 let descriptionSearch: string
 
 type TTestFunction =
@@ -39,7 +39,7 @@ export let testFunctionOnly: TTestFunction
 // testFunctionOnly = 'take'
 
 // ### search in spec description, ignoring case:
-// descriptionSearch = `A Date Single with extra props - with "props: 'all'" - iterates over props`
+descriptionSearch = '' // `A Date Single with extra props - with "props: 'all'" - iterates over props`
 //
 const theTakes = () =>
   <IAllTestOptions[]>[

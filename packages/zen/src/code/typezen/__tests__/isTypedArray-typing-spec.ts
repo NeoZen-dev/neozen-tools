@@ -501,6 +501,7 @@ describe('isTypedArray & family, with 3x3 typing of test on each: Known variable
 
       if (isTypedArray(arrayBuffer))
         // this is not weird, TS trusts us and merges types. The check will fail at runtime anyway!
+        // @ts-ignore-next-line
         expectType<TypeEqual<typeof arrayBuffer, TypedArray>>(true)
     })
   })

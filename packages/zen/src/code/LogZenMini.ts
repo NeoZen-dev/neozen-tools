@@ -168,8 +168,8 @@ export class LogZenMini {
   }
 }
 
-// _l = new LogZenMini('Internal Logger', ELogLevel.log)
-//
+_l = new LogZenMini('Internal Logger', ELogLevel.log)
+
 // _l.error('Hello world! error')
 // _l.warn('Hello world! warn')
 // _l.log('Hello world! log')
