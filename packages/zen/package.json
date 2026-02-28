@@ -165,6 +165,5 @@
   "homepage": "https://github.com/NeoZen-dev/neozen-tools/tree/main/packages/Zen",
   "author": "Angelos Pikoulas",
   "license": "MIT NON-AI",
-  "private": false,
-  "gitHead": "d95a1176265ab1b01724f53524ccfb81afb89dfa"
+  "private": false
 }

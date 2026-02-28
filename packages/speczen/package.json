@@ -92,7 +92,7 @@
     "@neozen/zen": "../zen"
   },
   "dependencies": {
-    "@neozen/zen": "^1.0.0-alpha.2",
+    "@neozen/zen": "workspace:^",
     "ansi-colors": "^4.1.3",
     "deepmerge": "^4.3.1",
     "json-stringify-safe": "^5.0.1",
@@ -177,6 +177,5 @@
   "homepage": "https://github.com/NeoZen-dev/neozen-tools/tree/main/packages/SpecZen",
   "author": "Angelos Pikoulas",
   "license": "MIT NON-AI",
-  "private": false,
-  "gitHead": "d95a1176265ab1b01724f53524ccfb81afb89dfa"
+  "private": false
 }

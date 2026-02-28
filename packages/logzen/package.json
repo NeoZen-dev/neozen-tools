@@ -97,9 +97,9 @@
     "@neozen/zen": "../zen"
   },
   "dependencies": {
-    "@neozen/speczen": "^1.0.0-alpha.2",
-    "@neozen/validzen": "^1.0.0-alpha.2",
-    "@neozen/zen": "^1.0.0-alpha.2",
+    "@neozen/speczen": "workspace:^",
+    "@neozen/validzen": "workspace:^",
+    "@neozen/zen": "workspace:^",
     "ansi-colors": "^4.1.3",
     "class-transformer": "^0.5.1",
     "class-transformer-validator": "^0.9.1",
@@ -190,6 +190,5 @@
   "homepage": "https://github.com/NeoZen-dev/neozen-tools/tree/main/packages/LogZen",
   "author": "Angelos Pikoulas",
   "license": "MIT NON-AI",
-  "private": false,
-  "gitHead": "d95a1176265ab1b01724f53524ccfb81afb89dfa"
+  "private": false
 }

@@ -42,7 +42,8 @@ Thumbs.db
 # @todo: custom - move to repo
 packages/zen/src/code/loopzen/__tests__/all-typings/_generated/
 
-# NOTE: here we should be excluding /packages/ but lerna has a bug (causing it to NOT respect dependency ordering, when /packages is in .gitignore)
-# See https://github.com/lerna/lerna/issues/3416#issuecomment-1306764662
-# NOT WORKING: Workaround to exclude it in .git/info/exclude instead of .gitignore - same end result
+# NOTE: /packages/ directory is managed by npm workspaces
 #/packages/
+
+# Auto Claude data directory
+.auto-claude/

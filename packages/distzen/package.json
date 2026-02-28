@@ -50,10 +50,10 @@
     "read-config-ng"
   ],
   "dependencies": {
-    "@neozen/logzen": "^1.0.0-alpha.2",
-    "@neozen/speczen": "^1.0.0-alpha.2",
-    "@neozen/validzen": "^1.0.0-alpha.2",
-    "@neozen/zen": "^1.0.0-alpha.2",
+    "@neozen/logzen": "workspace:^",
+    "@neozen/speczen": "workspace:^",
+    "@neozen/validzen": "workspace:^",
+    "@neozen/zen": "workspace:^",
     "chokidar": "^3.5.3",
     "commander": "^10.0.1",
     "fs-jetpack": "^5.1.0",
@@ -162,6 +162,5 @@
   ],
   "author": "Angelos Pikoulas",
   "license": "MIT NON-AI",
-  "private": false,
-  "gitHead": "d95a1176265ab1b01724f53524ccfb81afb89dfa"
+  "private": false
 }

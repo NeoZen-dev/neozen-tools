@@ -1,12 +1,12 @@
 # DistZen v1.0.0
 
-Install & watch clean/copy/sync multiple local packages, production-level via `npm i`, without symlinks, in a snap! All that with a single line of config (the package & path)! Works great with Docker, monorepos (eg Lerna) & standalone. 
+Install & watch clean/copy/sync multiple local packages, production-level via `npm i`, without symlinks, in a snap! All that with a single line of config (the package & path)! Works great with Docker, monorepos (eg npm workspaces) & standalone. 
 
 **Note**: Currently, it is tested / supports only TypeScript projects, vanilla JS support coming in the near future.
 
 ## TLDR
 
-Symbolic links for `node_modules` (i.e `npm link`, `lerna bootstrap` etc) are great, but they cam cause huge headaches: 
+Symbolic links for `node_modules` (i.e `npm link`, npm/yarn workspaces etc) are great, but they cam cause huge headaches: 
 * they fail with Docker (when docker container mounts local dir, symlinks aren't followed)   
 * WSL/networked access (open a project that resides inside your WSL, links aren't followed) 
 * inconsistent usage of non-published lib artifacts (files that should, but don't exist on the published lib, but is present on the project's dir, appears as working. But it will break in when published one is used!).  
@@ -66,7 +66,7 @@ I decided to write DistZen to solve all this in a single declaration!
 
 ## Symboplic Linking Problems
 
-Monorepos like lerna or npm link, solve the inter-project local dependencies problem by symbolic linking. [It seems to work great... but](https://github.com/lerna/lerna/issues/2256#issuecomment-539253511) it has [many issues](https://github.com/lerna/lerna/issues/3590):  
+Monorepo tools (historically lerna, now npm/yarn workspaces) and `npm link` solve the inter-project local dependencies problem by symbolic linking. [It seems to work great... but](https://github.com/lerna/lerna/issues/2256#issuecomment-539253511) it has [many issues](https://github.com/lerna/lerna/issues/3590):  
 
 ### Symbolic Links break on Docker
 
@@ -75,7 +75,7 @@ Docker breaks on Symbolic Links, when you have mounted your local `node_modules`
     volumes:
         - ./node_modules:/srv/node_modules
 
-The Docker OS can't possibly follow the links on the Host! In general, Lerna and monorepos in general aren't made to support [Dockerisation of a single package](https://github.com/lerna/lerna/issues/1703) and [supporting Docker altogether](https://github.com/lerna/lerna/issues/2256#issuecomment-539253511). They also don't currently (mid 2023) any [package management or Docker plans for upcoming version](https://github.com/lerna/lerna/discussions/3410#discussioncomment-4264740)
+The Docker OS can't possibly follow the links on the Host! In general, symlink-based monorepo tools (such as the now-historical lerna) aren't made to support [Dockerisation of a single package](https://github.com/lerna/lerna/issues/1703) and [supporting Docker altogether](https://github.com/lerna/lerna/issues/2256#issuecomment-539253511).
 
 But why would you mount your local `node_modules` inside the Docker container? 
 
@@ -176,7 +176,7 @@ You can (and should!) also have the normal dependencies on your package.json, an
          "great-lib2": "^@42",      
       },
 
-* *Note*: On Lerna setups, after having `bootstrap`-ed the project, sibling libs are installed as symbolic links on the dependent packages that need them. When `install-local` executes the first time, it is replacing them by a "proper" installation.
+* *Note*: On monorepo setups that use symlinks (e.g. the now-historical lerna `bootstrap`, or npm/yarn workspaces), sibling libs are installed as symbolic links on the dependent packages that need them. When `install-local` executes the first time, it is replacing them by a "proper" installation.
 
 ## Usage & Workflow 
 
