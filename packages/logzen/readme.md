@@ -3154,7 +3154,7 @@ All npm scripts that are post-fixed with a **tilde** (i.e `~`), for example `npm
 
 ## Installation
 
-LogZen is part of the neozen-tools [lerna monorepo](https://lerna.js.org).
+LogZen is part of the neozen-tools [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces) monorepo.
 
 To start development installation, clone the repo locally, cd to the repo's root and execute:
 
