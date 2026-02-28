@@ -91,7 +91,7 @@
     "@neozen/speczen": "../speczen"
   },
   "dependencies": {
-    "@neozen/zen": "^1.0.0-alpha.2",
+    "@neozen/zen": "workspace:^",
     "lodash": "^4.17.23"
   },
   "peerDependencies": {
@@ -103,7 +103,7 @@
   },
   "devDependencies": {
     "@mxssfd/typedoc-theme": "^1.1.7",
-    "@neozen/speczen": "^1.0.0-alpha.2",
+    "@neozen/speczen": "workspace:^",
     "@prettier/sync": "^0.3.0",
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
@@ -184,6 +184,5 @@
   "homepage": "https://github.com/NeoZen-dev/neozen-tools/tree/main/packages/ValidZen",
   "author": "Angelos Pikoulas",
   "license": "MIT NON-AI",
-  "private": false,
-  "gitHead": "d95a1176265ab1b01724f53524ccfb81afb89dfa"
+  "private": false
 }
