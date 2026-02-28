@@ -97,9 +97,9 @@
     "@neozen/zen": "../zen"
   },
   "dependencies": {
-    "@neozen/speczen": "workspace:^",
-    "@neozen/validzen": "workspace:^",
-    "@neozen/zen": "workspace:^",
+    "@neozen/speczen": "*",
+    "@neozen/validzen": "*",
+    "@neozen/zen": "*",
     "ansi-colors": "^4.1.3",
     "class-transformer": "^0.5.1",
     "class-transformer-validator": "^0.9.1",
