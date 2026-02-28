@@ -74,7 +74,7 @@
     "     ### Chores - local": "",
     "audit:root": "npm audit",
     "audit:root:fix": "npm audit fix",
-    "audit": "npm run audit:root --workspaces --if-present",
+    "audit": "npm run audit --workspaces --if-present",
     "audit:fix": "npm run audit:fix --workspaces --if-present",
     "audit:fix:force": "npm run audit:fix:force --workspaces --if-present",
     "distzen:this": "npx distzen",

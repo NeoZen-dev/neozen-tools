@@ -50,10 +50,10 @@
     "read-config-ng"
   ],
   "dependencies": {
-    "@neozen/logzen": "*",
-    "@neozen/speczen": "*",
-    "@neozen/validzen": "*",
-    "@neozen/zen": "*",
+    "@neozen/logzen": "workspace:^",
+    "@neozen/speczen": "workspace:^",
+    "@neozen/validzen": "workspace:^",
+    "@neozen/zen": "workspace:^",
     "chokidar": "^3.5.3",
     "commander": "^10.0.1",
     "fs-jetpack": "^5.1.0",

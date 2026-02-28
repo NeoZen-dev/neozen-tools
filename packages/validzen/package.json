@@ -91,7 +91,7 @@
     "@neozen/speczen": "../speczen"
   },
   "dependencies": {
-    "@neozen/zen": "*",
+    "@neozen/zen": "workspace:^",
     "lodash": "^4.17.23"
   },
   "peerDependencies": {
@@ -103,7 +103,7 @@
   },
   "devDependencies": {
     "@mxssfd/typedoc-theme": "^1.1.7",
-    "@neozen/speczen": "*",
+    "@neozen/speczen": "workspace:^",
     "@prettier/sync": "^0.3.0",
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.202",
