@@ -10,65 +10,61 @@
   ],
   "version": "1.0.0-alpha.1",
   "scripts": {
-    "***************** Root Lerna Monorepo setup *****": "",
+    "***************** Root npm workspaces Monorepo setup *****": "",
 
     "################# Developing & Starting ": "",
     "   ### fdev: run FOCUSED Build & Test in watch, for selected packages, in separate Konsoles!": "",
-    "fdev~": "npx lerna run fdev~",
+    "fdev~": "npm run fdev~ --workspaces --if-present",
 
     "   ### dev: run ALL Build & Test in watch, for ALL packages, separate Konsoles": "",
-    "dev~": "npx lerna run dev~",
-    "dev:quick~": "npx lerna run dev:quick~",
+    "dev~": "npm run dev~ --workspaces --if-present",
+    "dev:quick~": "npm run dev:quick~ --workspaces --if-present",
 
     "   ### dev:reset A soft reset, and then dev": " # `build gen build` intentional, to re-build after gen!",
     "dev:reset~": "npm-run-all clean build distzen docker:clean docker:build migration:run dev:quick~",
 
     "   ### start:reset A soft reset, and then start": " # `build gen build` intentional, to re-build after gen!",
-    "start": "npx lerna run start",
-    "start2": "npx lerna run start2",
+    "start": "npm run start --workspaces --if-present",
+    "start2": "npm run start2 --workspaces --if-present",
 
     "start:reset": "npm-run-all clean build gen build distzen build docker:clean docker:build migration:run start",
 
     "################# Testing ": "",
-    "test": "npx lerna run test --loglevel verbose",
+    "test": "npm run test --workspaces --if-present",
 
     "         ####### Other - docker testing etc": "",
-    "test:all_node_versions": "npx lerna run test:all_node_versions --loglevel verbose",
-    "test:node_version": "npx lerna run test:node_version --loglevel verbose",
+    "test:all_node_versions": "npm run test:all_node_versions --workspaces --if-present",
+    "test:node_version": "npm run test:node_version --workspaces --if-present",
 
     "################# Build & Typescript": "",
-    "build": "npx lerna run build --loglevel verbose --sort --include-dependencies",
+    "build": "npm run build --workspaces --if-present",
     "build:all": "npm-run-all build docs:build",
 
     "   ### docs ": "",
-    "docs:build": "npx lerna run docs:build --loglevel verbose",
+    "docs:build": "npm run docs:build --workspaces --if-present",
     "build:docs": "npm run docs:build",
-    "docs~": "npx lerna run docs~ --loglevel verbose",
+    "docs~": "npm run docs~ --workspaces --if-present",
 
     "################# Code Generation": "",
-    "gen": "npx lerna run gen --loglevel verbose",
+    "gen": "npm run gen --workspaces --if-present",
 
     "################# Chores & installing": "",
-    "     ### Bootstrap, build, install local & test": "",
-    "boot": "npm-run-all bootstrap build installLocal gen build distzen chores docker:build migration:run",
-    "boot:quick": "npm-run-all bootstrap build installLocal build distzen chores",
-    "bootstrap": "npx lerna bootstrap --loglevel verbose",
+    "     ### Build, gen & test": "",
+    "boot": "npm-run-all build gen build distzen chores docker:build migration:run",
+    "boot:quick": "npm-run-all build distzen chores",
 
     "refresh": "npm-run-all clean build gen build distzen chores docker:build migration:run test",
     "refresh:quick": "npm-run-all clean build gen distzen test",
 
-    "     ###### Specific Packages": "",
-    "boot:logzen": "npx lerna bootstrap --scope=\"@neozen/logzen\" --include-dependencies --loglevel verbose",
-
     "     ### Delete `dist/`, `cover/` etc on ALL packages": "",
-    "clean": "npx lerna run clean --loglevel verbose",
+    "clean": "npm run clean --workspaces --if-present",
     "wipe": "npm run clean && npm run docker:clean",
 
     "     ### Delete node_modules on ALL packages": "",
-    "rimrafnode": "npx lerna clean --yes --loglevel verbose",
+    "rimrafnode": "npm exec --workspaces -- npx rimraf node_modules",
 
     "     ### Delete package-lock.json on ALL packages": "",
-    "unlock": "npm run unlock:this && npx lerna run unlock --loglevel verbose",
+    "unlock": "npm run unlock:this && npm run unlock --workspaces --if-present",
     "unlock:this": "rimraf package-lock.json",
 
     "     ### Nuke everything! Wipe clean docker & build files & nuke node_modules": "",
@@ -78,33 +74,33 @@
     "     ### Chores - local": "",
     "audit:root": "npm audit",
     "audit:root:fix": "npm audit fix",
-    "audit": "npx lerna run audit",
-    "audit:fix": "npx lerna run audit:fix",
-    "audit:fix:force": "npx lerna run audit:fix:force",
+    "audit": "npm run audit:root --workspaces --if-present",
+    "audit:fix": "npm run audit:fix --workspaces --if-present",
+    "audit:fix:force": "npm run audit:fix:force --workspaces --if-present",
     "distzen:this": "npx distzen",
     "distzen:this!": "npx distzen --watch",
 
     "     ### Chores - all": "",
-    "distzen": "npx lerna run distzen",
-    "distzen!": "npx lerna run distzen!",
-    "chores": "npx lerna run chores",
+    "distzen": "npm run distzen --workspaces --if-present",
+    "distzen!": "npm run distzen! --workspaces --if-present",
+    "chores": "npm run chores --workspaces --if-present",
     "# postinstall": "",
     "# prepare": "husky install",
 
     "################# TypeORM & Migrations": "",
-    "migration:run": "npx lerna run migration:run",
+    "migration:run": "npm run migration:run --workspaces --if-present",
 
     "################# Docker & Compose": "",
     "docker:reset": "npm-run-all docker:clean docker:build migration:run",
-    "docker:clean": "npx lerna run docker:clean --loglevel verbose",
-    "docker:build": "npx lerna run docker:build --loglevel verbose",
+    "docker:clean": "npm run docker:clean --workspaces --if-present",
+    "docker:build": "npm run docker:build --workspaces --if-present",
 
     "################# Formatting & Linting": "",
-    "lint": "npx lerna run lint --loglevel verbose",
-    "lint:fix": "npx lerna run lint:fix --loglevel verbose",
-    "lint:noFail": "npx lerna run lint:noFail --loglevel verbose",
-    "format": "npx lerna run format --loglevel verbose",
-    "prettier": "npx lerna run prettier --loglevel verbose",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "lint:noFail": "npm run lint:noFail --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "prettier": "npm run prettier --workspaces --if-present",
 
     "################# Various / Internal": "",
     "prepublishOnly": "echo NeoZen Tools Monorepo SHOULD NOT BE PUBLISHED && exit 0"
