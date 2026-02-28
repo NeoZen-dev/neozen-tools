@@ -1,6 +1,13 @@
 {
   "name": "neozen-tools",
-  "description": "NeoZen Tools Monorepo, using @lerna/legacy-package-management",
+  "description": "NeoZen Tools Monorepo, using npm workspaces",
+  "workspaces": [
+    "packages/zen",
+    "packages/speczen",
+    "packages/validzen",
+    "packages/logzen",
+    "packages/distzen"
+  ],
   "version": "1.0.0-alpha.1",
   "scripts": {
     "***************** Root Lerna Monorepo setup *****": "",
@@ -74,7 +81,6 @@
     "audit": "npx lerna run audit",
     "audit:fix": "npx lerna run audit:fix",
     "audit:fix:force": "npx lerna run audit:fix:force",
-    "installLocal": "npx install-local",
     "distzen:this": "npx distzen",
     "distzen:this!": "npx distzen --watch",
 
@@ -82,7 +88,7 @@
     "distzen": "npx lerna run distzen",
     "distzen!": "npx lerna run distzen!",
     "chores": "npx lerna run chores",
-    "# postinstall": "npm run installLocal",
+    "# postinstall": "",
     "# prepare": "husky install",
 
     "################# TypeORM & Migrations": "",
@@ -114,21 +120,12 @@
     "@neozen/distzen": "1.0.0-alpha.1"
   },
   "devDependencies": {
-    "install-local": "^3.0.1",
-    "@lerna/legacy-package-management": "^8.1.9",
-    "lerna": "^8.1.9",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "typescript": "5.6.3"
   },
   "overrides": {
     "minimatch": "3.1.5",
-    "nx": {
-      "minimatch": "9.0.8"
-    },
-    "@nx/devkit": {
-      "minimatch": "9.0.8"
-    },
     "tar": "7.5.9",
     "js-yaml": "4.1.1",
     "tmp": "0.2.5"
