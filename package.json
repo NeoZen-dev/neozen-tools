@@ -73,6 +73,7 @@
     "audit:root:fix": "npm audit fix",
     "audit": "npx lerna run audit",
     "audit:fix": "npx lerna run audit:fix",
+    "audit:fix:force": "npx lerna run audit:fix:force",
     "installLocal": "npx install-local",
     "distzen:this": "npx distzen",
     "distzen:this!": "npx distzen --watch",

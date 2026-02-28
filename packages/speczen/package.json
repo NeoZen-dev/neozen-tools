@@ -72,7 +72,7 @@
     "typedoc!": "nodemon --config nodemon.json --watch readme.md --exec npm run typedoc",
     "################# Chores, clean and installing": "",
     "audit": "npm audit",
-    "audit:fix": "npm audit fix",
+    "audit:fix": "npm audit fix", "audit:fix:force": "npm audit fix --force",
     "clean": "npx rimraf -g dist coverage .nyc_output result junit.xml ~temp tsconfig.*.tsbuildinfo && npm run clean:gen",
     "clean:docs": "npm run docs:clean",
     "clean:gen": "npx rimraf dist/docs/generated && npx mkdirp dist/docs/generated",
@@ -100,6 +100,7 @@
     "traverse": "^0.6.7"
   },
   "devDependencies": {
+    "@mxssfd/typedoc-theme": "^1.1.7",
     "@prettier/sync": "^0.3.0",
     "@types/jest": "^29.5.11",
     "@types/json-stringify-safe": "^5.0.1",
@@ -119,7 +120,7 @@
     "eslint-plugin-jest": "^27.6.3",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-tsdoc": "^0.4.0",
+    "eslint-plugin-tsdoc": "^0.5.2",
     "eslint-plugin-unicorn": "^50.0.1",
     "install-local": "^3.0.1",
     "jest": "^29.7.0",
@@ -141,7 +142,6 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typedoc": "0.26.11",
-    "@mxssfd/typedoc-theme": "^1.1.7",
     "typescript": "5.6.3"
   },
   "files": [
