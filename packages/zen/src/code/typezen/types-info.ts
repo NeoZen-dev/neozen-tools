@@ -313,6 +313,9 @@ export const set_prototype_stringNonEnumerablesInherited = [
 // @ts-expect-error OK constructor missing in keyof, but returned at runtime
 set_prototype_stringNonEnumerablesInherited.unshift('constructor')
 
+// @ts-expect-error Set methods added in ES2025 (Node 22+), not yet in TS 5.6 lib types
+;['union', 'intersection', 'difference', 'symmetricDifference', 'isSubsetOf', 'isSupersetOf', 'isDisjointFrom'].forEach((m) => set_prototype_stringNonEnumerablesInherited.push(m))
+
 export type Tset_prototype_stringNonEnumerablesInherited =
   (typeof set_prototype_stringNonEnumerablesInherited)[number]
 
@@ -390,6 +393,10 @@ export type TsetOrMapEntries_prototype_stringNonEnumerablesOwn =
 export const setOrMapEntries_prototype_stringNonEnumerablesInherited = [
   'next',
 ] as const satisfies (keyof SetIteratorEntries<any>)[]
+
+// @ts-expect-error Iterator Helpers added in ES2025 (Node 22+), not yet in TS 5.6 lib types
+;['constructor', 'map', 'filter', 'take', 'drop', 'flatMap', 'reduce', 'toArray', 'forEach', 'some', 'every', 'find'].forEach((m) => setOrMapEntries_prototype_stringNonEnumerablesInherited.push(m))
+
 export type TsetOrMapEntries_prototype_stringNonEnumerablesInherited =
   | (typeof setOrMapEntries_prototype_stringNonEnumerablesInherited)[number]
   // Missing from actual result, but we should report them
@@ -402,6 +409,8 @@ export const setOrMapEntries_prototype_symbolNonEnumerablesInherited = [
 ] as const satisfies (keyof SetIteratorEntries<any>)[]
 // @ts-expect-error OK Symbol.toStringTag missing in keyof, but returned at runtime
 setOrMapEntries_prototype_symbolNonEnumerablesInherited.unshift(Symbol.toStringTag)
+// @ts-expect-error Symbol.dispose added in ES2025 (Node 24+), not yet in TS 5.6 lib types
+if (Symbol.dispose) setOrMapEntries_prototype_symbolNonEnumerablesInherited.push(Symbol.dispose)
 
 export type TsetOrMapEntries_prototype_symbolNonEnumerablesInherited =
   (typeof setOrMapEntries_prototype_symbolNonEnumerablesInherited)[number]
@@ -437,6 +446,10 @@ export const generator_prototype_stringNonEnumerablesInherited = [
 ] as const satisfies PropsString<Generator<any>>[]
 // @ts-expect-error OK constructor missing in keyof, but returned at runtime
 generator_prototype_stringNonEnumerablesInherited.unshift('constructor')
+
+// @ts-expect-error Iterator Helpers added in ES2025 (Node 22+), not yet in TS 5.6 lib types
+;['map', 'filter', 'take', 'drop', 'flatMap', 'reduce', 'toArray', 'forEach', 'some', 'every', 'find'].forEach((m) => generator_prototype_stringNonEnumerablesInherited.push(m))
+
 export type Tgenerator_prototype_stringNonEnumerablesInherited =
   (typeof generator_prototype_stringNonEnumerablesInherited)[number]
 
@@ -445,6 +458,8 @@ export const generator_prototype_symbolNonEnumerablesInherited = [
 ] as const satisfies PropsSymbol<Generator<any>>[]
 // @ts-expect-error OK Symbol.toStringTag missing in keyof, but returned at runtime
 generator_prototype_symbolNonEnumerablesInherited.unshift(Symbol.toStringTag)
+// @ts-expect-error Symbol.dispose added in ES2025 (Node 24+), not yet in TS 5.6 lib types
+if (Symbol.dispose) generator_prototype_symbolNonEnumerablesInherited.push(Symbol.dispose)
 export type Tgenerator_prototype_symbolNonEnumerablesInherited =
   (typeof generator_prototype_symbolNonEnumerablesInherited)[number]
 
@@ -498,6 +513,8 @@ export const asyncGenerator_prototype_symbolNonEnumerablesInherited = [
 ] as const satisfies PropsSymbol<AsyncGenerator<any>>[]
 // @ts-expect-error OK Symbol.toStringTag missing in keyof, but returned at runtime
 asyncGenerator_prototype_symbolNonEnumerablesInherited.push(Symbol.toStringTag)
+// @ts-expect-error Symbol.asyncDispose added in ES2025 (Node 24+), not yet in TS 5.6 lib types
+if (Symbol.asyncDispose) asyncGenerator_prototype_symbolNonEnumerablesInherited.push(Symbol.asyncDispose)
 export type TasyncGenerator_prototype_symbolNonEnumerablesInherited =
   (typeof asyncGenerator_prototype_symbolNonEnumerablesInherited)[number]
 
@@ -814,6 +831,10 @@ export const dataView_prototype_stringNonEnumerablesInherited = [
 ] as const satisfies PropsString<DataView>[]
 // @ts-expect-error OK 'constructor' missing in keyof, but returned at runtime
 dataView_prototype_stringNonEnumerablesInherited.push('constructor')
+
+// @ts-expect-error Float16 methods added in ES2025 (Node 24+), not yet in TS 5.6 lib types
+if (typeof DataView.prototype.getFloat16 === 'function') ['getFloat16', 'setFloat16'].forEach((m) => dataView_prototype_stringNonEnumerablesInherited.push(m))
+
 export const dataView_prototype_stringNonEnumerablesInherited_ES2023: never[] = []
 
 export type TdataView_prototype_stringNonEnumerablesInherited =

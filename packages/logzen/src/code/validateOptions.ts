@@ -1,6 +1,7 @@
 import * as _ from 'lodash'
 import { ValidationError } from 'class-validator'
 import { TransformValidationOptions } from 'class-transformer-validator'
+import { plainToInstance } from 'class-transformer'
 
 // NeoZen
 import { isOk, isRealObject } from '@neozen/zen'
@@ -31,7 +32,7 @@ export const filenameCheckForFileOutputs = (
 const transformAndValidateSyncOptions: TransformValidationOptions = {
   validator: {
     forbidNonWhitelisted: true,
-    // forbidUnknownValues: true,
+    // forbidUnknownValues: true, // class-validator 0.14.x defaults to true
     whitelist: true,
   },
 }
@@ -59,7 +60,11 @@ const transformAndValidateLogZenOptions = (
   actualOptionsClass = Options,
   path: string[] = []
 ): Options => {
-  const validatedOptions = validateObject(options, actualOptionsClass, {
+  // Pre-transform to class instances using logzen's class-transformer, so nested
+  // @Type() decorators are resolved from the same MetadataStorage singleton that
+  // registered them (avoids module duplication issues in monorepo setups).
+  const transformedOptions = plainToInstance(actualOptionsClass, options)
+  const validatedOptions = validateObject(transformedOptions, actualOptionsClass, {
     ...transformAndValidateSyncOptions,
     validzen: { path },
   })

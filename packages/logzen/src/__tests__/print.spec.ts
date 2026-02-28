@@ -633,7 +633,42 @@ describe('print.spec', () => {
           mapAsObject: false,
         },
         complicatedMap,
-        `\`Map(7) {
+        // Node 24+ changed util.inspect Symbol key format: [Symbol(x)] -> Symbol(x)
+        parseInt(process.versions.node) >= 24
+          ? `\`Map(7) {
+  { a: 1, b: 2, Symbol(foo): 'foo symbol' } => 'pojso value',
+  'aPerson' => <ref *1> Person {
+    name: 'Angelos',
+    parentInstanceMethod: [Function (anonymous)],
+    circularPerson: [Circular *1],
+    Symbol(personKey): 'symbol key value'
+  },
+  'aPersonNested' => {
+    a: <ref *1> Person {
+      name: 'Angelos',
+      parentInstanceMethod: [Function (anonymous)],
+      circularPerson: [Circular *1],
+      Symbol(personKey): 'symbol key value'
+    }
+  },
+  'aPersonInSymbol' => {
+    Symbol(person): <ref *1> Person {
+      name: 'Angelos',
+      parentInstanceMethod: [Function (anonymous)],
+      circularPerson: [Circular *1],
+      Symbol(personKey): 'symbol key value'
+    }
+  },
+  'normalStringKey' => 'stringKey value',
+  Symbol(o) => 'o value symbol',
+  <ref *1> Person {
+    name: 'Angelos',
+    parentInstanceMethod: [Function (anonymous)],
+    circularPerson: [Circular *1],
+    Symbol(personKey): 'symbol key value'
+  } => 'aPerson instance as key'
+}\``
+          : `\`Map(7) {
   { a: 1, b: 2, [Symbol(foo)]: 'foo symbol' } => 'pojso value',
   'aPerson' => <ref *1> Person {
     name: 'Angelos',
